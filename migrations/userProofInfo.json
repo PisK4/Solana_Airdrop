@@ -1,0 +1,258 @@
+[
+  {
+    "user": "pisxReuiFWqib2JZno8MUtM6FyNe46er3s4YTHTzJLP",
+    "index": 0,
+    "amount": 100,
+    "proof": [
+      "0x5178df8c8dcec739763c807de70f023d17f3e05a70a4239551d93161f09c07af",
+      "0x7c4038b81b05832734dda6bf3f58ac52791daf68e0fe05de8ba938629a9dd180",
+      "0x83cf4ad3268def978679a923ad69af9cdf993d9bca11261e4aca07aeeefc6a6a",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "sosJ8CLsG9tadAeVUH4ZcidgKNL9qubZWGTRprgbCVH",
+    "index": 1,
+    "amount": 101,
+    "proof": [
+      "0x63fc02a6227ce61881fba3c553605a4937a66242a16ae06d40d7f66b11d4699d",
+      "0x65ac9d61a931482975dc269c8c94e816f3c28493f8e3ca23baaeef6c2b2df5c8",
+      "0xd9cdb4878cfec4c43ab44d5ec97b1cb74867f9d1990147d8df766bec15017b7e",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "sosMrprj6yvZ5tGgWWZsKK2xnxNPFQSYAiHdkFQU1b2",
+    "index": 2,
+    "amount": 102,
+    "proof": [
+      "0x4388ca1b80205a13ca797c1d8b656a939c7b3fa47f7a6ab0c160ae27782bde1a",
+      "0x7c4038b81b05832734dda6bf3f58ac52791daf68e0fe05de8ba938629a9dd180",
+      "0x83cf4ad3268def978679a923ad69af9cdf993d9bca11261e4aca07aeeefc6a6a",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "sosyUAvBZEdyzJbcEmZT55ywKzSBzUoQiEG1ojTMBLw",
+    "index": 3,
+    "amount": 103,
+    "proof": [
+      "0x7f02824e2340f1a23908089541054c86376b0a2592b2d6ea6dc7a80c1dea83e8",
+      "0x5e2bca0e490656102278d1bab154998d3e18cfbdb895cb4cfecc614c176b151a",
+      "0xd9cdb4878cfec4c43ab44d5ec97b1cb74867f9d1990147d8df766bec15017b7e",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "sosvDxJuvfoT124VwwYr3wKdKriEFhFqvoYQ1nJtCrB",
+    "index": 4,
+    "amount": 104,
+    "proof": [
+      "0xca57186cba510be954777183330556ed1aab0959c08c00f035955b5ee14ddc0e",
+      "0xc70c55f0f73b6abdd7022e54b4a384513ce6842df7c880f4bd026768f97f64c2",
+      "0xecd1734af7243ec76b53c2b0a32eab7ccc6837420a5f18d0e83eac4b802cb88e",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "sosbMPm9JgCnPrgrAPLfg1yZqfeiqxmkM4GiZtuGLEx",
+    "index": 5,
+    "amount": 105,
+    "proof": [
+      "0xceb3ad8b22087c732b3a7d72b89de5db70df84608d00ee59aa28d777b29c3836",
+      "0xb7fe4b79000ca3ea752aae71c7fe0dae3140461b98cb3032be40e6df70ab4b8a",
+      "0xecd1734af7243ec76b53c2b0a32eab7ccc6837420a5f18d0e83eac4b802cb88e",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "6qrp8Pv3YM9uuP4Bi17rjEsS9E8crLpfMwVLGvNRQPPr",
+    "index": 6,
+    "amount": 106,
+    "proof": [
+      "0x880361e6c88412f58bc206c10e5012be8ef4217990441b199b408117cc7ebfbf",
+      "0xb7c9f073723731fec4669bad799fb6c603e8b9655725edd2e0e1b9bdb766dc68",
+      "0xde52d706747efb7e7f16b6ca7b00ef10b06200a6b156646fdc84b5c4957492b4",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "TFyK9UNKLHLUhpeALWv3L6fizWBbKh5vzh2HEagpqt4",
+    "index": 7,
+    "amount": 107,
+    "proof": [
+      "0xdada69d8962e4c0a64756ca611353009b0325e29524416c54525c4a62b11d64e",
+      "0xb7fe4b79000ca3ea752aae71c7fe0dae3140461b98cb3032be40e6df70ab4b8a",
+      "0xecd1734af7243ec76b53c2b0a32eab7ccc6837420a5f18d0e83eac4b802cb88e",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "CNhMVyL1fZu6VEW9Bu16mzzuupZ3FXmgYRnKirwShAAR",
+    "index": 8,
+    "amount": 108,
+    "proof": [
+      "0x72957d04bb72af06d9048ae1d5c3c2127b814480e512b9ebd12f4e87b4f3a19e",
+      "0x65ac9d61a931482975dc269c8c94e816f3c28493f8e3ca23baaeef6c2b2df5c8",
+      "0xd9cdb4878cfec4c43ab44d5ec97b1cb74867f9d1990147d8df766bec15017b7e",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "9uLCpteXSBQafbPvikjSz3tUMNSdsaWDWhb3deAx5qqw",
+    "index": 9,
+    "amount": 109,
+    "proof": [
+      "0x7acec1da670b0167c56d9ce09a5c8f60c4bffe8e067f5e2cfdda81e5d29823b3",
+      "0x5e2bca0e490656102278d1bab154998d3e18cfbdb895cb4cfecc614c176b151a",
+      "0xd9cdb4878cfec4c43ab44d5ec97b1cb74867f9d1990147d8df766bec15017b7e",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "7dMwTsEgytWosGWJG7JbhufVFpi3v7GsTiFP2ZCtysXy",
+    "index": 10,
+    "amount": 110,
+    "proof": [
+      "0x1ce10134b92631852bffeaf055db5a22b8991d1e64e76d82b16a3f1d5caa9966",
+      "0x8254b1df70ad804fd1a0da6572943d5c12cd30b3ff6ceb07797dd5b19aa2f682",
+      "0x9117f34621409ad645daeaab829d62d5091959a4f96e0d701d684696ae5a510b",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "53fpGh2EWreks74Ry8nboZzFDkg7sUEPBQKdbtRd9Vg6",
+    "index": 11,
+    "amount": 111,
+    "proof": [
+      "0x261de7ca17ecffba734def012632c8c8e29c89e84982f1fdcfb2d97c99d654f6",
+      "0x8254b1df70ad804fd1a0da6572943d5c12cd30b3ff6ceb07797dd5b19aa2f682",
+      "0x9117f34621409ad645daeaab829d62d5091959a4f96e0d701d684696ae5a510b",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "AaaURoQ45WWA8YcYETPvhhNSMorEHWrcb4xiGuGdmYXU",
+    "index": 12,
+    "amount": 112,
+    "proof": [
+      "0x1cc2d9faf45457cc2b348718d6c8f7dc3fd3be9782f95b28efe6050ddcd1afd7",
+      "0x90adc8a176293d933a627bd19f700fd3cc99aa70c9e3c1f32e7b349feb59ee47",
+      "0x9117f34621409ad645daeaab829d62d5091959a4f96e0d701d684696ae5a510b",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "31rHrgZUk7WEntL5z6hf3hMfvbcBzJL3J3NLGwiorWKF",
+    "index": 13,
+    "amount": 113,
+    "proof": [
+      "0xe285bdaf26029fff6f861fbe80c531cb464f6c5cd09d1db74951e2b88d3025b9",
+      "0x90a38b28f845434d03c71a6e61b2b87b6d61b7403ed716315079fb35d731a213",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "7hSuPxdSBHrCvtQ9idBFCMzHhHxrx4gQK4xgStRXHhVR",
+    "index": 14,
+    "amount": 114,
+    "proof": [
+      "0xcaeb7fc2bd9ac6dc6968383501b2229d6e8ebda69630cabc659cbf931794c4bb",
+      "0xc70c55f0f73b6abdd7022e54b4a384513ce6842df7c880f4bd026768f97f64c2",
+      "0xecd1734af7243ec76b53c2b0a32eab7ccc6837420a5f18d0e83eac4b802cb88e",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "CtV8Dbkfa2cAuuccqBcYPjSvDJ9E1DENirA5GV7L3yb8",
+    "index": 15,
+    "amount": 115,
+    "proof": [
+      "0xdcc55b37c839b393aeea3d8316ba410cf0faad130591a73e03aac9bfc4e51abd",
+      "0x90a38b28f845434d03c71a6e61b2b87b6d61b7403ed716315079fb35d731a213",
+      "0x40afbd9ac4c4cfd00a62f6a66660cd6838f54bbde3c0a201813a05ac4828d2b5"
+    ]
+  },
+  {
+    "user": "GjkSmrHVUhXMYvy1yFMvUGqxuBdbxBxiZgiiegJdi4CY",
+    "index": 16,
+    "amount": 116,
+    "proof": [
+      "0x83426490111c4de1e897a77f5bd534a158986839ef968d0be59a8f9d8e70d106",
+      "0x5e372dce19f474ddf14e3558b85fcad9063bf2dd7576c9a1ca6f310e6b6f6be2",
+      "0xde52d706747efb7e7f16b6ca7b00ef10b06200a6b156646fdc84b5c4957492b4",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "GbGw8QeB7RXuRfvoM34v5qRmXqSd5VpLjNMgdW7UAAYF",
+    "index": 17,
+    "amount": 117,
+    "proof": [
+      "0xc043e66747c381e319f57b7b88645a9e11cda995d01d4f4d6636f8f86d3231e7",
+      "0xb7c9f073723731fec4669bad799fb6c603e8b9655725edd2e0e1b9bdb766dc68",
+      "0xde52d706747efb7e7f16b6ca7b00ef10b06200a6b156646fdc84b5c4957492b4",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "GYA9udFbjFFmg4pFtR5KQZJRPK9HS4FsAxHT5sdzHBSf",
+    "index": 18,
+    "amount": 118,
+    "proof": [
+      "0x861a0eedd4669462130c6d436b7e548780e056d3d9fdde80ee316a5a31b535fe",
+      "0x5e372dce19f474ddf14e3558b85fcad9063bf2dd7576c9a1ca6f310e6b6f6be2",
+      "0xde52d706747efb7e7f16b6ca7b00ef10b06200a6b156646fdc84b5c4957492b4",
+      "0x06e46cbae56c23fd5fa9b570069f5dd10852141e1deac57a8472a621451ddc87",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "5hdSg4GJAQGDqywzKG5eDQSDWZWTThqd3MduWVhxuLRE",
+    "index": 19,
+    "amount": 119,
+    "proof": [
+      "0x0088a40587c1eae676d1e58a4918cb66fb58f892fe559af3135bc07150621221",
+      "0x90adc8a176293d933a627bd19f700fd3cc99aa70c9e3c1f32e7b349feb59ee47",
+      "0x9117f34621409ad645daeaab829d62d5091959a4f96e0d701d684696ae5a510b",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "FA1qnqZWMptKtmyQ4DQvufH5tiYentEyvStPehsJfCTk",
+    "index": 20,
+    "amount": 120,
+    "proof": [
+      "0x5af969fe1c7267c5c641a649f44ee2146a434e0c12c2ce63dc14d23ec9edd4d5",
+      "0x39297bae66c461657321ce60be99e39a14bf3d629e9d3c0b35fbed2b3fa83e48",
+      "0x83cf4ad3268def978679a923ad69af9cdf993d9bca11261e4aca07aeeefc6a6a",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  },
+  {
+    "user": "A6btmrJsQhxQ6axk4Z4TqAtZ97oZq9urT6CZamVfc6bH",
+    "index": 21,
+    "amount": 121,
+    "proof": [
+      "0x5ed9717c473389ea262d005717ba4d57111ca91e3b67dc9f3f739a99ed56ace2",
+      "0x39297bae66c461657321ce60be99e39a14bf3d629e9d3c0b35fbed2b3fa83e48",
+      "0x83cf4ad3268def978679a923ad69af9cdf993d9bca11261e4aca07aeeefc6a6a",
+      "0xaa837a9ed0828df5603af4b95fd8a0a93b0b5ab81f90088c9da0b07c6906981e",
+      "0x84abefb31ce414c4f35ecc561cb3a56279813cd5fd67fbb677610de9af1499a4"
+    ]
+  }
+]

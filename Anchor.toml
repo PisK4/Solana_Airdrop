@@ -16,3 +16,7 @@ wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+gen = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 migrations/generateRoot.ts"
+dis = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 migrations/newDis.ts"
+spl = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 migrations/spl.ts"
+mint = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 migrations/spl.mint.ts"

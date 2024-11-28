@@ -13,7 +13,10 @@ export function generatePdaForDistributor(
 ): [anchor.web3.PublicKey, number] {
     console.log(`base: ${base.toBase58()}`);
     console.log(`programId: ${programId.toBase58()}`);
-    return pdaFromSeeds([DISTRIBUTOR_SEED, base.toBuffer()], programId);
+    console.log("here0");
+    const [distributor, distributorBump] = pdaFromSeeds([DISTRIBUTOR_SEED, base.toBuffer()], programId);
+    console.log("here1");
+    return [distributor, distributorBump];
 }
 
 // /// Status of the claim.
@@ -101,4 +104,72 @@ export function loadKeypairFromFile(filename: string): anchor.web3.Keypair {
     const secret = JSON.parse(fs.readFileSync(filename).toString()) as number[];
     const secretKey = Uint8Array.from(secret);
     return anchor.web3.Keypair.fromSecretKey(secretKey);
+}
+
+export function generateMerkleDistributorProgram(
+    network: string = "devnet"
+): anchor.Program {
+    let programId: string;
+    switch (network) {
+        case "devnet":
+            programId = "BDSchMcYS2porfeisQoVNgtbJeqrgCxTU6bwYaaWY9ci";
+            break;
+        default:
+            throw new Error(`Network not supported: ${network}`);
+    }
+
+    const provider = getProvider(network);
+    return new anchor.Program(merkleDistributorIDL as anchor.Idl, provider);
+}
+
+// export function generateMerkleDistributorProgram(
+//     network: string = "devnet"
+// ): anchor.Program {
+//     let programId: string;
+//     switch (network) {
+//         case "devnet":
+//             programId = "mokB6FzEZx6vPVmasd19CyDDuqZ98auke1Bk59hmzVE";
+//             break;
+//         default:
+//             throw new Error(`Network not supported: ${network}`);
+//     }
+
+//     const provider = getProvider(network);
+//     return new anchor.Program(merkleDistributorIDL as anchor.Idl, provider);
+// }
+
+export function getProvider(network: string = "devnet"): anchor.Provider {
+    let url: string;
+    switch (network) {
+        case "devnet":
+            url =
+                "https://solana-devnet.g.alchemy.com/v2/-m2gJ2Fiv4w403IMR27nGoHUyonc0azl";
+            break;
+        case "mainnet":
+            url =
+                "https://solana-mainnet.g.alchemy.com/v2/-m2gJ2Fiv4w403IMR27nGoHUyonc0azl";
+            break;
+        case "local":
+            url = "http://127.0.0.1:8899";
+            break;
+        default:
+            throw new Error(`Network not supported: ${network}`);
+    }
+
+    const connection = new anchor.web3.Connection(url, "confirmed");
+    const provider = new anchor.AnchorProvider(
+        connection,
+        anchor.AnchorProvider.local().wallet,
+        {
+            commitment: "confirmed",
+        }
+    );
+
+    return provider;
+}
+
+export function generatePublicKeyFromString(
+    address: string
+): anchor.web3.PublicKey {
+    return new anchor.web3.PublicKey(address);
 }
