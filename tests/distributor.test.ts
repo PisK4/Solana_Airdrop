@@ -30,6 +30,7 @@ import {
     Account
 } from "@solana/spl-token";
 import { BalanceTree } from "../src/utils";
+import { publicKey } from "@coral-xyz/anchor/dist/cjs/utils";
 
 // chai.use(chaiSolana);
 
@@ -44,10 +45,16 @@ describe("Distributor Test", () => {
     anchor.setProvider(provider);
     const distributorProgram = anchor.workspace.MerkleDistributor;
     console.log(`distributorProgram: ${distributorProgram.programId.toBase58()}`);
-    const luckyKeypair = anchor.web3.Keypair.fromSeed(
-        Buffer.from(distributorUtils.padStringTo32Bytes("lucky"))
-    );
+    // const luckyKeypair = anchor.web3.Keypair.fromSeed(
+    //     Buffer.from(distributorUtils.padStringTo32Bytes("lucky_guy_keypair"))
+    // );
+    // const vaultKeypair = anchor.web3.Keypair.fromSeed(
+    //     Buffer.from(distributorUtils.padStringTo32Bytes("vault_keypair"))
+    // );
+    const luckyKeypair = Keypair.generate();
+    const vaultKeypair = Keypair.generate();
     console.log(`lucky guy: ${luckyKeypair.publicKey.toBase58()}`);
+    console.log(`vault guy: ${vaultKeypair.publicKey.toBase58()}`);
 
     let distributor: anchor.web3.PublicKey;
     let claimStatus: anchor.web3.PublicKey;
@@ -63,6 +70,7 @@ describe("Distributor Test", () => {
 
     let distributorAssociatedTokenAccount: Account;
     let luckyAssociatedTokenAccount: Account;
+    let vaultAssociatedTokenAccount: Account;
 
     before("setting up", async () => {
         console.log("setting up begin");
@@ -85,9 +93,17 @@ describe("Distributor Test", () => {
                 5 * anchor.web3.LAMPORTS_PER_SOL
             )
         );
+
+        await provider.connection.confirmTransaction(
+            await provider.connection.requestAirdrop(
+                vaultKeypair.publicKey,
+                5 * anchor.web3.LAMPORTS_PER_SOL
+            )
+        );
         console.log(`airdrop success, balance: ${await provider.connection.getBalance(payer.publicKey)}`);
 
         baseKeypair = Keypair.generate();
+        // baseKeypair = distributorUtils.ownerKeypair;
 
         const kpOne = Keypair.generate();
         const kpTwo = Keypair.generate();
@@ -102,9 +118,9 @@ describe("Distributor Test", () => {
             })
         );
 
-        const claimAmountOne = new anchor.BN(100);
-        const claimAmountTwo = new anchor.BN(101);
-        const claimAmountThree = new anchor.BN(102);
+        const claimAmountOne = new anchor.BN(1 * anchor.web3.LAMPORTS_PER_SOL);
+        const claimAmountTwo = new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL);
+        const claimAmountThree = new anchor.BN(3 * anchor.web3.LAMPORTS_PER_SOL);
         tree = new BalanceTree([
             { account: kpOne.publicKey, amount: claimAmountOne },
             { account: kpTwo.publicKey, amount: claimAmountTwo },
@@ -145,6 +161,7 @@ describe("Distributor Test", () => {
 
     it("should set the mint authority to the distributor", async () => {
         {
+            console.log(`mint to lucky guy`);
             const mintAmount = 123 * anchor.web3.LAMPORTS_PER_SOL;
 
             luckyAssociatedTokenAccount = await splUtils.getAssociatedTokenAddress(connection, payer, mint, false, luckyKeypair.publicKey);
@@ -175,12 +192,50 @@ describe("Distributor Test", () => {
             //     distributor,
             // );
         }
-
         {
+            console.log(`mint to vault guy`);
+            const mintAmount = 321 * anchor.web3.LAMPORTS_PER_SOL;
+
+            vaultAssociatedTokenAccount = await splUtils.getAssociatedTokenAddress(connection, payer, mint, true, vaultKeypair.publicKey);
+            console.log(`vaultATAAddress: ${vaultAssociatedTokenAccount.address.toBase58()}`);
+
+            // mint token
+            await mintTo(
+                connection,
+                vaultKeypair,
+                mint,
+                vaultAssociatedTokenAccount.address,
+                tokenOwner,
+                mintAmount,
+            )
+
+            // check balance
+            const vaultBalance = await connection.getTokenAccountBalance(vaultAssociatedTokenAccount.address);
+            console.log(`vault balance: ${Number(vaultBalance.value.amount) / anchor.web3.LAMPORTS_PER_SOL}`);
+            expect(Number(vaultBalance.value.amount)).to.equal(Number(mintAmount));
+
+            const tx = await setAuthority(
+                connection,
+                payer,
+                vaultAssociatedTokenAccount.address,
+                vaultKeypair,
+                AuthorityType.AccountOwner,
+                distributor,
+            );
+            console.log(`setAuthority tx: ${tx}`);
+
+            // vaultAssociatedTokenAccount = await splUtils.getAssociatedTokenAddress(connection, payer, mint, false, vaultKeypair.publicKey);
+            // console.log("new vaultATA");
+            // console.log(vaultAssociatedTokenAccount);
+
+        }
+        {
+            console.log(`mint to distributor`);
             const mintAmount = 456 * anchor.web3.LAMPORTS_PER_SOL;
             distributorAssociatedTokenAccount = await splUtils.getAssociatedTokenAddress(connection, payer, mint, true, distributor);
-            // console.log(distributorAssociatedTokenAccount);
+            console.log(distributorAssociatedTokenAccount);
             console.log(`distributorATAAddress: ${distributorAssociatedTokenAccount.address.toBase58()}`);
+            console.log(`ATA owner: ${distributorAssociatedTokenAccount.owner.toBase58()}, mint: ${mint.toBase58()}, distributor: ${distributor.toBase58()}`);
             // mint token
             await mintTo(
                 connection,
@@ -243,24 +298,23 @@ describe("Distributor Test", () => {
     });
 
     it("verify proof success", async () => {
-        const amount = new anchor.BN(102);
+        const amount = new anchor.BN(3 * anchor.web3.LAMPORTS_PER_SOL);
         const index = new anchor.BN(2);
         const proof = tree.getProof(Number(index), luckyKeypair.publicKey, amount);
-        for (const p of proof) {
-            console.log(`p: ${p.toString('hex')}`);
-            const arr = Array.from(p);
-            console.log(arr);
-        }
-
-        console.log(proof);
+        // for (const p of proof) {
+        //     console.log(`p: ${p.toString('hex')}`);
+        //     const arr = Array.from(p);
+        //     console.log(arr);
+        // }
+        // console.log(proof);
 
         const [_claimStatus, _claimStatusBump] = distributorUtils.generatePdaForClaimStatus(index, distributor, distributorProgram.programId);
         claimStatus = _claimStatus;
         console.log(`claimStatus: ${claimStatus.toBase58()}, bump: ${_claimStatusBump}`);
-        const node = BalanceTree.toNode(Number(index), luckyKeypair.publicKey, amount);
-        console.log(`node: ${node.toString('hex')}`);
+        // const node = BalanceTree.toNode(Number(index), luckyKeypair.publicKey, amount);
+        // console.log(`node: ${node.toString('hex')}`);
         const result = BalanceTree.verifyProof(Number(index), luckyKeypair.publicKey, amount, proof, root);
-        console.log(`result: ${result}`);
+        // console.log(`result: ${result}`);
         expect(result).to.equal(true);
         {
             const balanceBefore = await connection.getTokenAccountBalance(luckyAssociatedTokenAccount.address);
