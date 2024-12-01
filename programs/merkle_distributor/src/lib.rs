@@ -16,8 +16,6 @@
 
 use anchor_lang::{ prelude::*, solana_program::pubkey::PUBKEY_BYTES };
 use anchor_spl::token::{ self, Mint, Token, TokenAccount, Transfer };
-// use vipers::prelude::*;
-
 pub mod merkle_proof;
 
 pub const DISTRIBUTOR_SEED: &[u8] = b"MerkleDistributor";
@@ -63,40 +61,19 @@ pub mod merkle_distributor {
     /// Claims tokens from the [MerkleDistributor].
     pub fn claim(ctx: Context<Claim>, index: u64, amount: u64, proof: Vec<[u8; 32]>) -> Result<()> {
         let claim_status = &mut ctx.accounts.claim_status;
-        // invariant!(
-        //     // This check is redundant, we should not be able to initialize a claim status account at the same key.
-        //     !claim_status.is_claimed && claim_status.claimed_at == 0,
-        //     DropAlreadyClaimed
-        // );
         require!(
             !claim_status.is_claimed && claim_status.claimed_at == 0,
             ErrorCode::DropAlreadyClaimed
         );
-
         let claimant_account = &ctx.accounts.claimant;
         let distributor = &ctx.accounts.distributor;
-        // invariant!(claimant_account.is_signer, Unauthorized);
         require!(claimant_account.is_signer, ErrorCode::Unauthorized);
-
         // Verify the merkle proof.
-
-        // let node2 = anchor_lang::solana_program::keccak::hashv(
-        //     &[&index.to_be_bytes(), &claimant_account.key().to_bytes(), &amount.to_be_bytes()]
-        // );
-
         let node = anchor_lang::solana_program::keccak::hashv(
             &[&index.to_le_bytes(), &claimant_account.key().to_bytes(), &amount.to_le_bytes()]
         );
 
-        // msg!("buildNode: {:?}", node);
-        // msg!("buildNode2: {:?}", node2);
-
-        // msg!("proof_element: {:?}", proof);
-        // msg!("root: {:?}", distributor.root);
-
         let result = merkle_proof::verify(proof, distributor.root, node.0);
-        // msg!("result: {:?}", result);
-        // invariant!(merkle_proof::verify(proof, distributor.root, node.0), InvalidProof);
         require!(result == true, ErrorCode::InvalidProof);
         // Mark it claimed and send the tokens.
         claim_status.amount = amount;
@@ -111,20 +88,6 @@ pub mod merkle_distributor {
             &[ctx.accounts.distributor.bump],
         ];
 
-        // #[allow(deprecated)]
-        // {
-        //     vipers::assert_ata!(ctx.accounts.from, ctx.accounts.distributor, distributor.mint);
-        // }
-        // assert_keys_eq!(ctx.accounts.to.owner, claimant_account.key(), OwnerMismatch);
-        // require!(ctx.accounts.to.owner == claimant_account.key(), ErrorCode::OwnerMismatch);
-        // token::transfer(
-        //     CpiContext::new(ctx.accounts.token_program.to_account_info(), token::Transfer {
-        //         from: ctx.accounts.from.to_account_info(),
-        //         to: ctx.accounts.to.to_account_info(),
-        //         authority: ctx.accounts.distributor.to_account_info(),
-        //     }).with_signer(&[&seeds[..]]),
-        //     amount
-        // )?;
         let signer_seeds = &[&seeds[..]];
         let cpi_accounts = Transfer {
             from: ctx.accounts.from.to_account_info(),
@@ -135,29 +98,18 @@ pub mod merkle_distributor {
         let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer_seeds);
         token::transfer(cpi_ctx, amount)?;
 
-        msg!("from: {:?}", ctx.accounts.from.key());
-        msg!("to: {:?}", ctx.accounts.to.key());
-        msg!("authority: {}", ctx.accounts.distributor.key());
-
         let distributor = &mut ctx.accounts.distributor;
-        // distributor.total_amount_claimed = unwrap_int!(
-        //     distributor.total_amount_claimed.checked_add(amount)
-        // );
         distributor.total_amount_claimed = distributor.total_amount_claimed
             .checked_add(amount)
             .unwrap();
 
-        // invariant!(
-        //     distributor.total_amount_claimed <= distributor.max_total_claim,
-        //     ExceededMaxClaim
-        // );
         require!(
             distributor.total_amount_claimed <= distributor.max_total_claim,
             ErrorCode::ExceededMaxClaim
         );
-        // distributor.num_nodes_claimed = unwrap_int!(distributor.num_nodes_claimed.checked_add(1));
+
         distributor.num_nodes_claimed = distributor.num_nodes_claimed.checked_add(1).unwrap();
-        // invariant!(distributor.num_nodes_claimed <= distributor.max_num_nodes, ExceededMaxNumNodes);
+
         require!(
             distributor.num_nodes_claimed <= distributor.max_num_nodes,
             ErrorCode::ExceededMaxNumNodes
