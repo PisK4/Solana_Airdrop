@@ -5,7 +5,8 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-merkle_distributor2 = "2c5UNjyF4H3pCMZ1VmsUoTi6vC4NonNcYG6Jn3SVEVV4"
+merkle_distributor = "BDSchMcYS2porfeisQoVNgtbJeqrgCxTU6bwYaaWY9ci"
+solana_vesting_program = "vestuxzJ5p2kp4iZYvt4rdK5UEqypwoX2MzMkHn5auY"
 
 [registry]
 url = "https://api.apr.dev"
